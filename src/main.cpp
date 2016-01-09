@@ -13,6 +13,7 @@ int main(int argc, char* argv[])
 	cv::Mat_<cv::Vec3b> cvColorImage;
 	cvColorImage.create(depthData.rows, depthData.cols);
 	std::copy(colorImage, colorImage + depthData.rows * depthData.cols * 3, cvColorImage.data);
+	delete[] colorImage;
 	cv::imshow("display", cvColorImage);
 	cv::waitKey(0);
 	cv::destroyAllWindows();
